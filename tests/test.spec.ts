@@ -5,7 +5,7 @@ import userQa from "../src/test-data/qa/userQa";
 import { DataFactoryPhysicalMember } from "../src/utils/DataFactoryPhysicalMember";
 
 
-test.only("Accéder sur le site et s'authentifier", async ({ page }) => {
+test("Accéder sur le site et s'authentifier", async ({ page }) => {
   const loginPage = new LoginPage(page);
   const testPage = new TestPage(page);
  
