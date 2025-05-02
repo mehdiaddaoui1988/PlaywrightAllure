@@ -50,7 +50,7 @@ test("Login and add employees from Excel", async ({ page }) => {
   });
 });
 
-test.only('Login and add all employees from file Excel', async ({ page }) => {
+test('Login and add all employees from file Excel', async ({ page }) => {
   const loginData = ExcelUtils.getLoginData()[0];
   const employeesData = ExcelUtils.getEmployeeData();
 
