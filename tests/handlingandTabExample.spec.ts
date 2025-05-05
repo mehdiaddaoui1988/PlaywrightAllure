@@ -39,5 +39,5 @@ test('Gérer un nouvel onglet et revenir à la page principale', async ({ page, 
     expect( page.locator("//h1[normalize-space(text())='Practice Page']")).toContainText('Practice Page');
     
     console.log('Retour à la page principale réussi ✅');
-    await page.pause();
+    //await page.pause();
 });
