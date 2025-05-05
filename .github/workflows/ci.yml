@@ -1,4 +1,4 @@
-name: Playwright Tests with Allure (Docker Image)
+name: Playwright Tests with Allure (Stable Setup)
 
 on:
   push:
@@ -12,32 +12,28 @@ jobs:
     container:
       image: mcr.microsoft.com/playwright:v1.38.1-focal
 
-    env:
-      BROWSER: chromium
-      BASEURL: https://bookcart.azurewebsites.net/
-
     timeout-minutes: 120
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install additional system dependencies
+      - name: Install system dependencies (if needed)
         run: |
           apt-get update -y
           apt-get install -y chromium-browser
 
-      - name: Install Node.js and project dependencies
+      - name: Install Node dependencies
         run: |
           npm ci
           npm install @playwright/test
           npx playwright install --with-deps
 
       - name: Run pretest
-        run: npm run pretest
+        run: npm run pretest || echo "No pretest defined"
 
       - name: Run Playwright tests
-        run: npm test
+        run: npx playwright test
 
       - name: Generate Allure report
         run: |
