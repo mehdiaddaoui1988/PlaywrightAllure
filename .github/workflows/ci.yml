@@ -34,7 +34,7 @@ jobs:
           npx playwright install --with-deps
 
       - name: Run Playwright tests (with multiple workers)
-        run: npx playwright test --workers=2
+        run: npx playwright test --workers=1
 
       - name: Generate Allure report
         run: |
