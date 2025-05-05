@@ -1,4 +1,4 @@
-name: Playwright Tests with Allure (Stable Setup)
+name: Playwright Tests with Allure + GitHub Pages
 
 on:
   push:
@@ -12,36 +12,61 @@ jobs:
     container:
       image: mcr.microsoft.com/playwright:v1.38.1-focal
 
-    timeout-minutes: 120
+    timeout-minutes: 30
+    outputs:
+      report-path: ${{ steps.export-report.outputs.report-path }}
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install system dependencies (if needed)
+      - name: Install Java (required for Allure)
         run: |
           apt-get update -y
-          apt-get install -y chromium-browser
+          apt-get install -y default-jdk
+          echo "JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))" >> $GITHUB_ENV
 
-      - name: Install Node dependencies
+      - name: Install dependencies
         run: |
           npm ci
           npm install @playwright/test
+          npm install -g allure-commandline --save-dev
           npx playwright install --with-deps
 
-      - name: Run pretest
-        run: npm run pretest || echo "No pretest defined"
-
-      - name: Run Playwright tests
-        run: npx playwright test
+      - name: Run Playwright tests (with multiple workers)
+        run: npx playwright test --workers=2
 
       - name: Generate Allure report
         run: |
-          npm install -g allure-commandline --save-dev
           allure generate ./allure-results --clean -o ./allure-report
 
-      - name: Upload Allure report
+      - name: Export report path
+        id: export-report
+        run: echo "report-path=allure-report" >> $GITHUB_OUTPUT
+
+      - name: Upload Allure report as artifact
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
           path: ./allure-report
+
+  deploy-report:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Download Allure report
+        uses: actions/download-artifact@v4
+        with:
+          name: allure-report
+          path: ./allure-report
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./allure-report
