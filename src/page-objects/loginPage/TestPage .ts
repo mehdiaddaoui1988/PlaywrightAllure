@@ -48,7 +48,7 @@ export default class TestPage {
     // Sélectionner les valeurs dans l'interface
     await this.selectOption(this.arrows.employeeStatus, selectedStatus);
     await this.selectOption(this.arrows.include, selectedInclude);
-    await this.selectOption(this.arrows.jobTitle, selectedJobTitle);
+    //await this.selectOption(this.arrows.jobTitle, selectedJobTitle);
     await this.selectOption(this.arrows.subUnit, selectedSubUnit);
 
     console.log(`🚀 Employé généré :  - ${gender} \n🔹 Status : ${selectedStatus} \n🔹 Include : ${selectedInclude} \n🔹 Job Title : ${selectedJobTitle} \n🔹 Sub Unit : ${selectedSubUnit}`);
