@@ -73,6 +73,9 @@ jobs:
           publish_dir: ./allure-report
           destination_dir: allure-reports/${{ needs.test.outputs.run-id }}
           keep_files: true
+          
+      - name: Copy custom index.html to gh-pages
+        run: cp ./index.html ./allure-report/index.html
 
       - name: Deploy to GitHub Pages (latest)
         uses: peaceiris/actions-gh-pages@v3
