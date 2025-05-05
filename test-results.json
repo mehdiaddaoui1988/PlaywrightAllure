@@ -11,7 +11,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 1
+      "actualWorkers": 2
     },
     "preserveOutput": "always",
     "reporter": [
@@ -66,8 +66,8 @@
       "line": 0,
       "specs": [
         {
-          "title": "Login and add all employees from file Excel",
-          "ok": true,
+          "title": "Login and add employees from Excel",
+          "ok": false,
           "tags": [],
           "tests": [
             {
@@ -79,52 +79,613 @@
               "results": [
                 {
                   "workerIndex": 0,
-                  "status": "passed",
-                  "duration": 27306,
-                  "errors": [],
+                  "status": "failed",
+                  "duration": 25778,
+                  "error": {
+                    "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('heading', { name: 'Personal Details' })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Personal Details' })\u001b[22m\n",
+                    "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('heading', { name: 'Personal Details' })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Personal Details' })\u001b[22m\n\n    at C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\addEmployee.spec.ts:49:7\n    at C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\addEmployee.spec.ts:39:3",
+                    "matcherResult": {
+                      "message": "\u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('heading', { name: 'Personal Details' })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Personal Details' })\u001b[22m\n",
+                      "pass": false,
+                      "actual": "<element(s) not found>",
+                      "name": "toBeVisible",
+                      "expected": "visible",
+                      "log": [
+                        "  - expect.toBeVisible with timeout 5000ms",
+                        "  - waiting for getByRole('heading', { name: 'Personal Details' })"
+                      ],
+                      "timeout": 5000
+                    },
+                    "location": {
+                      "file": "C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\addEmployee.spec.ts",
+                      "column": 7,
+                      "line": 49
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 47 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\n \u001b[90m 48 |\u001b[39m       page\u001b[33m.\u001b[39mgetByRole(\u001b[32m\"heading\"\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m\"Personal Details\"\u001b[39m })\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 49 |\u001b[39m     )\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 50 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 51 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 52 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\addEmployee.spec.ts",
+                        "column": 7,
+                        "line": 49
+                      },
+                      "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('heading', { name: 'Personal Details' })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Personal Details' })\u001b[22m\n\n\n\u001b[0m \u001b[90m 47 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\n \u001b[90m 48 |\u001b[39m       page\u001b[33m.\u001b[39mgetByRole(\u001b[32m\"heading\"\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m\"Personal Details\"\u001b[39m })\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 49 |\u001b[39m     )\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 50 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 51 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 52 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\addEmployee.spec.ts:49:7\u001b[22m\n\u001b[2m    at C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\addEmployee.spec.ts:39:3\u001b[22m"
+                    }
+                  ],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
                   "steps": [
                     {
                       "title": "Login to OrangeHRM",
-                      "duration": 4341
+                      "duration": 6322
+                    },
+                    {
+                      "title": "Ajouter un employé",
+                      "duration": 13819,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('heading', { name: 'Personal Details' })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Personal Details' })\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('heading', { name: 'Personal Details' })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Personal Details' })\u001b[22m\n\n    at C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\addEmployee.spec.ts:49:7\n    at C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\addEmployee.spec.ts:39:3",
+                        "matcherResult": {
+                          "message": "\u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('heading', { name: 'Personal Details' })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Personal Details' })\u001b[22m\n",
+                          "pass": false,
+                          "actual": "<element(s) not found>",
+                          "name": "toBeVisible",
+                          "expected": "visible",
+                          "log": [
+                            "  - expect.toBeVisible with timeout 5000ms",
+                            "  - waiting for getByRole('heading', { name: 'Personal Details' })"
+                          ],
+                          "timeout": 5000
+                        },
+                        "location": {
+                          "file": "C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\addEmployee.spec.ts",
+                          "column": 7,
+                          "line": 49
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 47 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\n \u001b[90m 48 |\u001b[39m       page\u001b[33m.\u001b[39mgetByRole(\u001b[32m\"heading\"\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m\"Personal Details\"\u001b[39m })\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 49 |\u001b[39m     )\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 50 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 51 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 52 |\u001b[39m\u001b[0m"
+                      }
+                    }
+                  ],
+                  "startTime": "2025-05-02T14:44:13.222Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\test-results\\addEmployee-Login-and-add-employees-from-Excel-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\test-results\\addEmployee-Login-and-add-employees-from-Excel-chromium\\video.webm"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\addEmployee.spec.ts",
+                    "column": 7,
+                    "line": 49
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "9730de66fb8fe051150d-c4b74cb6c9ed92351f74",
+          "file": "addEmployee.spec.ts",
+          "line": 15,
+          "column": 5
+        },
+        {
+          "title": "Login and add all employees from file Excel",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "status": "failed",
+                  "duration": 25597,
+                  "error": {
+                    "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('heading', { name: 'Personal Details' })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Personal Details' })\u001b[22m\n",
+                    "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('heading', { name: 'Personal Details' })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Personal Details' })\u001b[22m\n\n    at C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\addEmployee.spec.ts:74:77\n    at C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\addEmployee.spec.ts:67:5",
+                    "matcherResult": {
+                      "message": "\u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('heading', { name: 'Personal Details' })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Personal Details' })\u001b[22m\n",
+                      "pass": false,
+                      "actual": "<element(s) not found>",
+                      "name": "toBeVisible",
+                      "expected": "visible",
+                      "log": [
+                        "  - expect.toBeVisible with timeout 5000ms",
+                        "  - waiting for getByRole('heading', { name: 'Personal Details' })"
+                      ],
+                      "timeout": 5000
+                    },
+                    "location": {
+                      "file": "C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\addEmployee.spec.ts",
+                      "column": 77,
+                      "line": 74
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 72 |\u001b[39m         emp\u001b[33m.\u001b[39mlastName\n \u001b[90m 73 |\u001b[39m       )\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 74 |\u001b[39m       \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'heading'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Personal Details'\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 75 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 76 |\u001b[39m   }\n \u001b[90m 77 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\addEmployee.spec.ts",
+                        "column": 77,
+                        "line": 74
+                      },
+                      "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('heading', { name: 'Personal Details' })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Personal Details' })\u001b[22m\n\n\n\u001b[0m \u001b[90m 72 |\u001b[39m         emp\u001b[33m.\u001b[39mlastName\n \u001b[90m 73 |\u001b[39m       )\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 74 |\u001b[39m       \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'heading'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Personal Details'\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 75 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 76 |\u001b[39m   }\n \u001b[90m 77 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\addEmployee.spec.ts:74:77\u001b[22m\n\u001b[2m    at C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\addEmployee.spec.ts:67:5\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Login to OrangeHRM",
+                      "duration": 6878
                     },
                     {
                       "title": "Ajouter l'employé : John Doe",
-                      "duration": 7763
-                    },
-                    {
-                      "title": "Ajouter l'employé : Alice Smith",
-                      "duration": 7365
-                    },
-                    {
-                      "title": "Ajouter l'employé : Malice Jef",
-                      "duration": 6195
+                      "duration": 12788,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('heading', { name: 'Personal Details' })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Personal Details' })\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('heading', { name: 'Personal Details' })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Personal Details' })\u001b[22m\n\n    at C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\addEmployee.spec.ts:74:77\n    at C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\addEmployee.spec.ts:67:5",
+                        "matcherResult": {
+                          "message": "\u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: getByRole('heading', { name: 'Personal Details' })\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - expect.toBeVisible with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'Personal Details' })\u001b[22m\n",
+                          "pass": false,
+                          "actual": "<element(s) not found>",
+                          "name": "toBeVisible",
+                          "expected": "visible",
+                          "log": [
+                            "  - expect.toBeVisible with timeout 5000ms",
+                            "  - waiting for getByRole('heading', { name: 'Personal Details' })"
+                          ],
+                          "timeout": 5000
+                        },
+                        "location": {
+                          "file": "C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\addEmployee.spec.ts",
+                          "column": 77,
+                          "line": 74
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 72 |\u001b[39m         emp\u001b[33m.\u001b[39mlastName\n \u001b[90m 73 |\u001b[39m       )\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 74 |\u001b[39m       \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'heading'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Personal Details'\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 75 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 76 |\u001b[39m   }\n \u001b[90m 77 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m"
+                      }
                     }
                   ],
-                  "startTime": "2025-04-30T15:08:50.251Z",
+                  "startTime": "2025-05-02T14:44:13.275Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\test-results\\addEmployee-Login-and-add-all-employees-from-file-Excel-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\test-results\\addEmployee-Login-and-add-all-employees-from-file-Excel-chromium\\video.webm"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\addEmployee.spec.ts",
+                    "column": 77,
+                    "line": 74
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "9730de66fb8fe051150d-3555a385463b6163c1cd",
+          "file": "addEmployee.spec.ts",
+          "line": 53,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "example.spec.ts",
+      "file": "example.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "has title",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "status": "passed",
+                  "duration": 8801,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-05-02T14:45:04.466Z",
                   "attachments": []
                 }
               ],
               "status": "expected"
             }
           ],
-          "id": "9730de66fb8fe051150d-3555a385463b6163c1cd",
-          "file": "addEmployee.spec.ts",
-          "line": 53,
-          "column": 6
+          "id": "a30a6eba6312f6b87ea5-b06063a3e613764d08f8",
+          "file": "example.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "get started link",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "status": "passed",
+                  "duration": 6061,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-05-02T14:45:04.679Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a30a6eba6312f6b87ea5-274e97907a6e3638a22f",
+          "file": "example.spec.ts",
+          "line": 10,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "handlingandTabExample.spec.ts",
+      "file": "handlingandTabExample.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Gérer un nouvel onglet et revenir à la page principale",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "status": "passed",
+                  "duration": 32731,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "🎉🎉🎉✨ Nouvelle URL: https://opensource-demo.orangehrmlive.com/web/index.php/auth/login 🎇🎉✨✨\n"
+                    },
+                    {
+                      "text": "Retour à la page principale réussi ✅\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-05-02T14:45:13.522Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a6b150f218248279f22f-71137737b41d0efb0ba1",
+          "file": "handlingandTabExample.spec.ts",
+          "line": 5,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "loginMember.spec.ts",
+      "file": "loginMember.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "member login",
+          "ok": true,
+          "tags": [
+            "login",
+            "favorite"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "status": "passed",
+                  "duration": 40260,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "fill the user",
+                      "duration": 31421
+                    },
+                    {
+                      "title": "fill the password",
+                      "duration": 447
+                    },
+                    {
+                      "title": "click validate button",
+                      "duration": 2207
+                    },
+                    {
+                      "title": "expect th e title in the dashboard",
+                      "duration": 297
+                    }
+                  ],
+                  "startTime": "2025-05-02T14:45:15.782Z",
+                  "attachments": [
+                    {
+                      "name": "Allure Metadata (metadata)",
+                      "contentType": "application/vnd.allure.message+json",
+                      "body": "eyJ0eXBlIjoibWV0YWRhdGEiLCJkYXRhIjp7ImxhYmVscyI6W3sibmFtZSI6InBhcmVudFN1aXRlIiwidmFsdWUiOiJBdXRvbWF0aW9uIFByb2plY3QifV19fQ=="
+                    },
+                    {
+                      "name": "Allure Metadata (metadata)",
+                      "contentType": "application/vnd.allure.message+json",
+                      "body": "eyJ0eXBlIjoibWV0YWRhdGEiLCJkYXRhIjp7ImxhYmVscyI6W3sibmFtZSI6InN1aXRlIiwidmFsdWUiOiJPcmFuZ2VIcm0ifV19fQ=="
+                    },
+                    {
+                      "name": "Allure Metadata (metadata)",
+                      "contentType": "application/vnd.allure.message+json",
+                      "body": "eyJ0eXBlIjoibWV0YWRhdGEiLCJkYXRhIjp7ImxhYmVscyI6W3sibmFtZSI6InN1YlN1aXRlIiwidmFsdWUiOiJBdXRoZW50aWZpY2F0aW9uIn1dfX0="
+                    },
+                    {
+                      "name": "User data",
+                      "contentType": "application/json",
+                      "body": "IlRFU1QtVEVTVCI="
+                    },
+                    {
+                      "name": "User data",
+                      "contentType": "application/json",
+                      "body": "IkFkbWluIg=="
+                    },
+                    {
+                      "name": "User Data First Name",
+                      "contentType": "application/json",
+                      "body": "IkVhcmwi"
+                    },
+                    {
+                      "name": "First name random",
+                      "contentType": "application/json",
+                      "body": "IklnbmFjaW8i"
+                    },
+                    {
+                      "name": "User Data",
+                      "contentType": "application/json",
+                      "body": "ImFkbWluMTIzIg=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b5ae780f3dd074b356b1-a862ce981c892455b8eb",
+          "file": "loginMember.spec.ts",
+          "line": 8,
+          "column": 5
+        },
+        {
+          "title": "The member logining ",
+          "ok": true,
+          "tags": [
+            "logining",
+            "favorite"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "status": "passed",
+                  "duration": 5789,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-05-02T14:45:47.322Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b5ae780f3dd074b356b1-50ab81ba76102c33e222",
+          "file": "loginMember.spec.ts",
+          "line": 50,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "newWindowSelectCheckboxRadiobutton.spec.ts",
+      "file": "newWindowSelectCheckboxRadiobutton.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Test automatisé Playwright",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "status": "passed",
+                  "duration": 39763,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-05-02T14:45:53.146Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a484a960884e41b9f842-3ba61b569b13f03577bd",
+          "file": "newWindowSelectCheckboxRadiobutton.spec.ts",
+          "line": 3,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "test.spec.ts",
+      "file": "test.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Accéder sur le site et s'authentifier",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "status": "failed",
+                  "duration": 110157,
+                  "error": {
+                    "message": "Error: locator.click: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - waiting for getByRole('option', { name: 'Project Manager' })\u001b[22m\n",
+                    "stack": "Error: locator.click: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - waiting for getByRole('option', { name: 'Project Manager' })\u001b[22m\n\n    at TestPage.selectOption (C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\src\\page-objects\\loginPage\\TestPage .ts:60:25)\n    at TestPage.selectEmployeeDetails (C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\src\\page-objects\\loginPage\\TestPage .ts:51:5)\n    at TestPage.fillEmployeeData (C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\src\\page-objects\\loginPage\\TestPage .ts:38:5)\n    at C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\test.spec.ts:25:5\n    at C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\test.spec.ts:19:3",
+                    "location": {
+                      "file": "C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\src\\page-objects\\loginPage\\TestPage .ts",
+                      "column": 25,
+                      "line": 60
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39m..\\src\\page-objects\\loginPage\\TestPage .ts:60\n\n\u001b[0m \u001b[90m 58 |\u001b[39m     \u001b[36mawait\u001b[39m arrow\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 59 |\u001b[39m     \u001b[36mconst\u001b[39m optionLocator \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgetByRole(\u001b[32m'option'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m optionName })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 60 |\u001b[39m     \u001b[36mawait\u001b[39m optionLocator\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 61 |\u001b[39m   }\n \u001b[90m 62 |\u001b[39m\n \u001b[90m 63 |\u001b[39m   \u001b[36mprivate\u001b[39m getRandomOption(optionsArray\u001b[33m:\u001b[39m string[])\u001b[33m:\u001b[39m string {\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\src\\page-objects\\loginPage\\TestPage .ts",
+                        "column": 25,
+                        "line": 60
+                      },
+                      "message": "Error: locator.click: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - waiting for getByRole('option', { name: 'Project Manager' })\u001b[22m\n\n\n\u001b[90m   at \u001b[39m..\\src\\page-objects\\loginPage\\TestPage .ts:60\n\n\u001b[0m \u001b[90m 58 |\u001b[39m     \u001b[36mawait\u001b[39m arrow\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 59 |\u001b[39m     \u001b[36mconst\u001b[39m optionLocator \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgetByRole(\u001b[32m'option'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m optionName })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 60 |\u001b[39m     \u001b[36mawait\u001b[39m optionLocator\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 61 |\u001b[39m   }\n \u001b[90m 62 |\u001b[39m\n \u001b[90m 63 |\u001b[39m   \u001b[36mprivate\u001b[39m getRandomOption(optionsArray\u001b[33m:\u001b[39m string[])\u001b[33m:\u001b[39m string {\u001b[0m\n\u001b[2m    at TestPage.selectOption (C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\src\\page-objects\\loginPage\\TestPage .ts:60:25)\u001b[22m\n\u001b[2m    at TestPage.selectEmployeeDetails (C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\src\\page-objects\\loginPage\\TestPage .ts:51:5)\u001b[22m\n\u001b[2m    at TestPage.fillEmployeeData (C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\src\\page-objects\\loginPage\\TestPage .ts:38:5)\u001b[22m\n\u001b[2m    at C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\test.spec.ts:25:5\u001b[22m\n\u001b[2m    at C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\test.spec.ts:19:3\u001b[22m"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "{ gender: \u001b[32m'Male'\u001b[39m, civility: \u001b[32m'Monsieur'\u001b[39m, firstName: \u001b[32m'Daryl'\u001b[39m }\n"
+                    },
+                    {
+                      "text": "Nom généré Par la lib fakers : Hickle\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Accéder à la page Pim et remplir les informations",
+                      "duration": 98549,
+                      "error": {
+                        "message": "Error: locator.click: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - waiting for getByRole('option', { name: 'Project Manager' })\u001b[22m\n",
+                        "stack": "Error: locator.click: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - waiting for getByRole('option', { name: 'Project Manager' })\u001b[22m\n\n    at TestPage.selectOption (C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\src\\page-objects\\loginPage\\TestPage .ts:60:25)\n    at TestPage.selectEmployeeDetails (C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\src\\page-objects\\loginPage\\TestPage .ts:51:5)\n    at TestPage.fillEmployeeData (C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\src\\page-objects\\loginPage\\TestPage .ts:38:5)\n    at C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\test.spec.ts:25:5\n    at C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\tests\\test.spec.ts:19:3",
+                        "location": {
+                          "file": "C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\src\\page-objects\\loginPage\\TestPage .ts",
+                          "column": 25,
+                          "line": 60
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\src\\page-objects\\loginPage\\TestPage .ts:60\n\n\u001b[0m \u001b[90m 58 |\u001b[39m     \u001b[36mawait\u001b[39m arrow\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 59 |\u001b[39m     \u001b[36mconst\u001b[39m optionLocator \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgetByRole(\u001b[32m'option'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m optionName })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 60 |\u001b[39m     \u001b[36mawait\u001b[39m optionLocator\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 61 |\u001b[39m   }\n \u001b[90m 62 |\u001b[39m\n \u001b[90m 63 |\u001b[39m   \u001b[36mprivate\u001b[39m getRandomOption(optionsArray\u001b[33m:\u001b[39m string[])\u001b[33m:\u001b[39m string {\u001b[0m"
+                      }
+                    }
+                  ],
+                  "startTime": "2025-05-02T14:45:56.179Z",
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\test-results\\test-Accéder-sur-le-site-et-s-authentifier-chromium\\video.webm"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\HOME\\Documents\\Workspace-Playwright\\playwright-Demo\\src\\page-objects\\loginPage\\TestPage .ts",
+                    "column": 25,
+                    "line": 60
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b72ba50710186a3d173d-23a118d2022f001682f7",
+          "file": "test.spec.ts",
+          "line": 8,
+          "column": 5
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-04-30T15:08:48.101Z",
-    "duration": 30624.193,
-    "expected": 1,
+    "startTime": "2025-05-02T14:44:07.394Z",
+    "duration": 219499.796,
+    "expected": 6,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 3,
     "flaky": 0
   }
 }
