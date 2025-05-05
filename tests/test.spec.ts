@@ -17,7 +17,7 @@ test("Accéder sur le site et s'authentifier", async ({ page }) => {
   
   // Etapes de test
   await test.step("Accéder à la page Pim et remplir les informations", async () => {
-    await page.pause();
+    //await page.pause();
     await testPage.clickPim();
     DataFactoryPhysicalMember.getGenderData();
     console.log(DataFactoryPhysicalMember.getGenderData());  
@@ -26,6 +26,6 @@ test("Accéder sur le site et s'authentifier", async ({ page }) => {
     
 
     
-    await page.pause();
+    //await page.pause();
   });
 });

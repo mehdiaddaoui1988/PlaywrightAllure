@@ -33,7 +33,7 @@ test('Gérer un nouvel onglet et revenir à la page principale', async ({ page, 
     // Fermer l'onglet après la connexion
     await newPage.close();
 
-    await page.pause();
+    //await page.pause();
     // Revenir sur la page principale et vérifier qu'on est bien revenu
     expect( page.url()).toContain('AutomationPractice');
     expect( page.locator("//h1[normalize-space(text())='Practice Page']")).toContainText('Practice Page');

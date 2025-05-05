@@ -18,7 +18,7 @@ test("member login", { tag: ["@login", "@favorite"] }, async ({ page }) => {
     //await loginPage.fillUsername();
     //await loginPage.fillField('username', userQa.user_auth.login)
     await loginPage.fillField("username", userQa.user_auth.login);
-    await page.pause();
+    //await page.pause();
     await allure.attachment("User data", JSON.stringify(userQa.user_auth.login, null, 2),"application/json" );
 
     await allure.attachment("User Data First Name", JSON.stringify(DataFactoryPhysicalMember.getFirstName("Male"), null, 2),
@@ -30,21 +30,21 @@ test("member login", { tag: ["@login", "@favorite"] }, async ({ page }) => {
       "application/json"
     );
 
-    await page.pause();
+   //await page.pause();
   });
   await test.step("fill the password", async () => {
     await loginPage.fillPassword();
     await allure.attachment("User Data",JSON.stringify(userQa.user_auth.password, null, 2),"application/json");
   });
   await test.step("click validate button", async () => {
-    await page.pause();
+    //await page.pause();
     await loginPage.clickLoginButton();
   });
 
   await test.step("expect th e title in the dashboard", async () => {
     await expect(page).toHaveTitle(/OrangeHRM/);
   }); 
-  await page.pause();
+  //await page.pause();
 });
 
 test("The member logining ",{ tag: ["@logining", "@favorite"] },async ({ page }) => {

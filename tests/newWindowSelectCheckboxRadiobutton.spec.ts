@@ -43,14 +43,14 @@ test('Test automatisé Playwright', async ({ page, context }) => {
   // Vérifier que le texte "QA Click Academy" est bien présent
   const qaText = newPage.locator("//h1[normalize-space(text())='QA Click Academy']");
   await expect(qaText).toBeVisible();
-  await page.pause();
+  //await page.pause();
   // Fermer la nouvelle fenêtre et revenir à l'ancienne
   await newPage.close();
   
   // Vérifier que toutes les actions précédentes sont bien en place sur la première page
   await expect(radio2).toBeChecked();
   await expect(suggestionInput).toHaveValue('France');
-  await page.pause();
+  //await page.pause();
   await expect(dropdown).toHaveValue('option3');
   await expect(checkbox1).toBeChecked();
   await expect(checkbox3).toBeChecked();
