@@ -29,15 +29,15 @@ jobs:
       - name: Install dependencies
         run: |
           npm ci
-          npm install @playwright/test
-          npm install -g allure-commandline --save-dev
+          # assure-toi que @playwright/test est en devDependencies
           npx playwright install --with-deps
 
-      - name: Run Playwright tests (with multiple workers)
-        run: npx playwright test --workers=1
+      - name: Run Playwright tests (with 2 workers)
+        run: npx playwright test --workers=2
 
       - name: Generate Allure report
         run: |
+          npm install -g allure-commandline --save-dev
           allure generate ./allure-results --clean -o ./allure-report
 
       - name: Export report path
@@ -50,6 +50,10 @@ jobs:
           name: allure-report
           path: ./allure-report
 
+      - name: Add report link to summary
+        run: |
+          echo "📊 [Allure Report](${{ github.server_url }}/${{ github.repository }}/actions/artifacts/${{ steps.export-report.outputs.report-path }})" >> $GITHUB_STEP_SUMMARY
+
   deploy-report:
     needs: test
     runs-on: ubuntu-latest
@@ -59,7 +63,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Download Allure report
+      - name: Download Allure report artifact
         uses: actions/download-artifact@v4
         with:
           name: allure-report
@@ -69,4 +73,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
           publish_dir: ./allure-report
+          destination_dir: allure-reports/${{ github.run_id }}
+          keep_files: true
