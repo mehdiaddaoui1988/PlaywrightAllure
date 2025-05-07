@@ -48,7 +48,8 @@ test('Test automatisé Playwright', async ({ page, context }) => {
 
   // Vérifier que le texte "QA Click Academy" est bien présent
   const qaText = newPage.locator("//h1[normalize-space(text())='QA Click Academy']");
-  await expect(qaText).toBeVisible();
+  await newPage.waitForLoadState('load');
+  await expect(qaText).toBeVisible({ timeout: 10000 });
   //await page.pause();
   // Fermer la nouvelle fenêtre et revenir à l'ancienne
   await newPage.close();
