@@ -86,6 +86,5 @@ export class AllureUtils {
   static addLabel(name: string, value: string) {
     allure.label(name, value);
   }
-
   
 }
