@@ -46,7 +46,7 @@ test("Connexion utilisateur valide", { tag: ["@login", "@favorite"] }, async ({ 
   });
 
   await test.step("4. Vérifier que le dashboard est affiché", async () => {
-    await page.pause();
+    
     await expect(page).toHaveTitle(/OrangeHRM/);
     await page.waitForTimeout(5000 ); 
     await page.screenshot({ path: 'screenshot-dashboard.png' });
