@@ -67,18 +67,18 @@ jobs:
     if: github.ref == 'refs/heads/main'
 
     steps:
-      # 1. Récupérer le code du repo
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2. Télécharger l'artifact généré
       - name: Download Allure report artifact
         uses: actions/download-artifact@v4
         with:
           name: allure-report
           path: ./allure-report
 
-      # 3. Déploiement versionné du rapport sur GitHub Pages
+      - name: Copy custom index.html to gh-pages
+        run: cp ./index.html ./allure-report/index.html
+
       - name: Deploy to GitHub Pages (versioned)
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -88,11 +88,6 @@ jobs:
           destination_dir: allure-reports/${{ needs.test.outputs.run-id }}
           keep_files: true
 
-      # 4. Ajouter un index.html personnalisé si besoin
-      - name: Copy custom index.html to gh-pages
-        run: cp ./index.html ./allure-report/index.html
-
-      # 5. Déploiement en tant que version "latest"
       - name: Deploy to GitHub Pages (latest)
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -102,7 +97,6 @@ jobs:
           destination_dir: allure-reports/latest
           keep_files: true
 
-      # 6. Afficher le lien du rapport dans le résumé GitHub
       - name: Add Allure report link to summary
         run: |
-          echo "\ud83d\udcca [Voir le rapport Allure (latest)](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/allure-reports/latest/)" >> $GITHUB_STEP_SUMMARY
+          echo "📊 [Voir le rapport Allure (latest)](https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/allure-reports/latest/)" >> $GITHUB_STEP_SUMMARY
