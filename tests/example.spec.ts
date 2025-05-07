@@ -1,6 +1,11 @@
 import { test, expect } from '@playwright/test';
+import { AllureUtils } from '../src/utils/allure.utils';
 
 test('has title', async ({ page }) => {
+  AllureUtils.initSuite("Automation Project", "playwright", "First test");
+  AllureUtils.setDescription("Ce test est le premier aprés avoir initier le projet .");
+  AllureUtils.setSeverity("minor");
+  AllureUtils.addTags("login", "smoke");
   await page.goto('https://playwright.dev/');
 
   // Expect a title "to contain" a substring.

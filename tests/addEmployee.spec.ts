@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import ExcelUtils from "../src/utils/ExcelUtils";
 import { LoginData } from "../src/interfaces/LoginData"; // Importation de l'interface LoginData
+import { AllureUtils } from "../src/utils/allure.utils"
 import { EmployeeData } from "../src/interfaces/EmployeeData"; // Importation de l'interface EmployeeData
 import LoginPagexcls from "../src/page-objects/loginPage/LoginPagexcls";
 import PimPage from "../src/page-objects/loginPage/PimPage";
@@ -13,6 +14,7 @@ const loginData = ExcelUtils.getLoginData()[0];
 const employeesData = ExcelUtils.getEmployeeData()[0]; //  pour la premiére ligne
 
 test("Login and add employees from Excel", async ({ page }) => {
+ 
   const loginPagexcls = new LoginPagexcls(page);
   const pimPage = new PimPage(page);
 
@@ -23,6 +25,7 @@ test("Login and add employees from Excel", async ({ page }) => {
     // à revoir
     await page.goto("/");
     await loginPagexcls.login(loginData.username, loginData.password);
+    AllureUtils.attachJson("Données utilisateur : ", (loginData.username, loginData.password));
     await expect(page).toHaveURL(/dashboard/);
   });
 
@@ -43,7 +46,9 @@ test("Login and add employees from Excel", async ({ page }) => {
       employeesData.middleName || "",
       employeesData.lastName,
       //employeesData.employeeId
+      
     );
+    
     await expect(
       page.getByRole("heading", { name: "Personal Details" })
     ).toBeVisible();
@@ -51,6 +56,12 @@ test("Login and add employees from Excel", async ({ page }) => {
 });
 
 test('Login and add all employees from file Excel', async ({ page }) => {
+
+  AllureUtils.initSuite("Automation Project", "OrangeHrm", "Add Employees With excelFiles");
+  AllureUtils.setDescription("Ce test est spécialement pour ajouter tous les employés via un fichier excel déjà rempli .");
+  AllureUtils.setSeverity("critical");
+  AllureUtils.addTags("login", "smoke");
+
   const loginData = ExcelUtils.getLoginData()[0];
   const employeesData = ExcelUtils.getEmployeeData();
 
@@ -60,17 +71,23 @@ test('Login and add all employees from file Excel', async ({ page }) => {
   await test.step('Login to OrangeHRM', async () => {
     await page.goto('/');
     await loginPage.login(loginData.username, loginData.password);
+    AllureUtils.attachJson("Données utilisateur : ", (loginData.username, loginData.password));
     await expect(page).toHaveURL(/dashboard/);
   });
 
   for (const emp of employeesData) {
     await test.step(`Ajouter l'employé : ${emp.firstName} ${emp.lastName}`, async () => {
+      
       await pimPage.navigateToAddEmployee();
       await pimPage.createEmployee(
         emp.firstName,
         emp.middleName || '',
         emp.lastName
       );
+      AllureUtils.attachJson("Données utilisateur : ", (emp.firstName ));
+      AllureUtils.attachJson("Données utilisateur ooo: ", (emp.lastName ));
+      await page.waitForTimeout(2000 ); 
+      await AllureUtils.attachScreenshot("Dashboard", page);
       await expect(page.getByRole('heading', { name: 'Personal Details' })).toBeVisible();
     });
   }

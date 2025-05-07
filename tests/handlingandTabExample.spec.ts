@@ -1,8 +1,13 @@
 import { test, expect } from "@playwright/test";
+import { AllureUtils } from "../src/utils/allure.utils";
 import  LoginPage from "../src/page-objects/loginPage/LoginPage"
 
 
 test('Gérer un nouvel onglet et revenir à la page principale', async ({ page, context }) => {
+   AllureUtils.initSuite("Automation Project", "OrangeHrm", "Add Employees With excelFiles");
+   AllureUtils.setDescription("Ce test est Pour Gérer un nouvel onglet et revenir à la page principale .");
+   AllureUtils.setSeverity("critical");
+   AllureUtils.addTags("login", "smoke");
     // Ouvrir la page de test
     await page.goto('https://sanjaydas9027.github.io/AutomationPractice/');
 
@@ -20,7 +25,7 @@ test('Gérer un nouvel onglet et revenir à la page principale', async ({ page, 
 
     // Saisir l'identifiant
     await newPage.locator("input[name='username']").fill('Admin');
-
+    
     // Saisir le mot de passe
     await newPage.locator("input[type='password']").fill('admin123');
 

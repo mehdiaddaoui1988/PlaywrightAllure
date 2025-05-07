@@ -1,6 +1,12 @@
 import { test, expect } from '@playwright/test';
+import { AllureUtils } from "../src/utils/allure.utils";
 
 test('Test automatisé Playwright', async ({ page, context }) => {
+  AllureUtils.initSuite("Automation Project", "OrangeHrm", "New window");
+  AllureUtils.setDescription("Ce test a pour but d'ouvrire une nouvelle fenêtre et maîtriser les checkBox / buton radio .");
+  AllureUtils.setSeverity("critical");
+  AllureUtils.addTags("login", "smoke");
+
   // Accéder au site de test
   await page.goto('https://sanjaydas9027.github.io/AutomationPractice/');
 

@@ -25,8 +25,13 @@ export default defineConfig({
   reporter: 
   [
     ["html"], // Rapport HTML
-    ["allure-playwright"], // Rapport Allure
     ["json", { outputFile: "test-results.json" }], // Rapport JSON
+    ["allure-playwright", {
+      detail: true,   // <-- garde les étapes personnalisées (test.step()) mais masque les hooks Playwright
+      outputFolder: 'allure-results',
+      suiteTitle: false,            // <-- désactive les noms de fichier .spec.ts
+      stripANSIControlSequences: true,     //  <-- nettoie les caractères spéciaux dans le terminal Allure
+    }], // Rapport Allure
     
       //["./src/utils/Reporter.ts"],
   ],
@@ -49,8 +54,10 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      // name: 'chromium',
+      // use: { ...devices['Desktop Chrome'] },
+      //name: 'Tests', // ← Ce nom neutre sera affiché dans Allure (ou ne mets rien si un seul projet)
+      use: { browserName: 'chromium' },
     },
   /** 
     {
