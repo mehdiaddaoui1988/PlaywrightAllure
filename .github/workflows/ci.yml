@@ -69,24 +69,29 @@ jobs:
           name: allure-report
           path: ./allure-report
 
-      - name: Copy custom index.html to gh-pages
-        run: cp ./index.html ./allure-report/index.html
+      # Copier ta page d’accueil dans un dossier temporaire pour écraser ensuite
+      - name: Copy custom landing page
+        run: |
+          mkdir -p ./allure-report/landing
+          cp ./index.html ./allure-report/landing/index.html
 
-      - name: Deploy to GitHub Pages (versioned)
+      # Déploiement du rapport Allure
+      - name: Deploy Allure report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: ./allure-report
-          destination_dir: allure-reports/${{ needs.test.outputs.run-id }}
+          destination_dir: allure-reports/latest
           keep_files: true
 
-      - name: Deploy to GitHub Pages (latest)
+      # Déploiement de la page personnalisée index.html (après coup)
+      - name: Deploy landing page (overwrite index.html)
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./allure-report
+          publish_dir: ./allure-report/landing
           destination_dir: allure-reports/latest
           keep_files: true
 
