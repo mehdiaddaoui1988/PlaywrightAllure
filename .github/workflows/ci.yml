@@ -18,42 +18,35 @@ jobs:
       run-id: ${{ github.run_id }}
 
     steps:
-      # 1. Récupérer le code du repo
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # 2. Installer Java (nécessaire pour Allure)
       - name: Install Java (required for Allure)
         run: |
           apt-get update -y
           apt-get install -y default-jdk
           echo "JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))" >> $GITHUB_ENV
 
-      # 3. Installer les dépendances Node + Allure CLI
       - name: Install dependencies
         run: |
           npm ci
           npm install -g allure-commandline --save-dev
           npx playwright install --with-deps
 
-      # 4. Lancer les tests avec 2 workers (continue même en cas d'échec)
       - name: Run Playwright tests (with 2 workers)
         run: npx playwright test --workers=2
         continue-on-error: true
 
-      # 5. Générer le rapport Allure (toujours exécuté)
       - name: Generate Allure report
         if: always()
         run: |
           allure generate ./allure-results --clean -o ./allure-report
 
-      # 6. Exporter le chemin du rapport
       - name: Export report path
         if: always()
         id: export-report
         run: echo "report-path=allure-report" >> $GITHUB_OUTPUT
 
-      # 7. Upload du rapport en tant qu'artifact
       - name: Upload Allure report as artifact
         if: always()
         uses: actions/upload-artifact@v4
