@@ -12,8 +12,6 @@ jobs:
     container:
       image: mcr.microsoft.com/playwright:v1.38.1-focal
 
-    timeout-minutes: 30
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -37,14 +35,14 @@ jobs:
       - name: Generate Allure report
         if: always()
         run: |
-          allure generate ./allure-results --clean -o ./allure-report
+          allure generate ./allure-results --clean -o ./allure-reports/report
 
-      - name: Upload Allure report artifact
+      - name: Upload Allure report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
-          path: ./allure-report
+          path: ./allure-reports/report
 
   deploy:
     needs: test
@@ -59,14 +57,13 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: allure-report
-          path: ./temp-report
+          path: ./allure-reports/report
 
-      - name: Prepare GitHub Pages folder structure
+      - name: Prepare GitHub Pages directory
         run: |
-          mkdir -p ./public/allure-reports/latest
-          mkdir -p ./public/allure-reports/report
-          cp index.html ./public/allure-reports/latest/index.html
-          cp -r ./temp-report/* ./public/allure-reports/report/
+          mkdir -p ./public/allure-reports
+          cp -r ./allure-reports/latest ./public/allure-reports/
+          cp -r ./allure-reports/report ./public/allure-reports/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
