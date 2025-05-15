@@ -13,6 +13,7 @@ import PimPage from "../src/page-objects/loginPage/PimPage";
 const loginData = ExcelUtils.getLoginData()[0];
 const employeesData = ExcelUtils.getEmployeeData()[0]; //  pour la premiére ligne
 
+
 test("Login and add employees from Excel", async ({ page }) => {
  
   const loginPagexcls = new LoginPagexcls(page);
