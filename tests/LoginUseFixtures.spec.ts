@@ -13,13 +13,14 @@ test.describe('Authentification OrangeHRM avec l\'utilisation des Fixtures ', ()
     }, 
     async ({ loginPage, page }) => {
       AllureUtils.initSuite('Automation Project', 'OrangeHrm', 'Authentification');
-      AllureUtils.setDescription('Vérifie la connexion via fixture LoginPage.');
+      AllureUtils.setDescription('Ce test vérifie la connexion avec des identifiants valides via fixture LoginPage.');
       AllureUtils.setSeverity('critical');
       AllureUtils.addTags('login', 'smoke');
 
       await page.goto('/');
 
       await test.step('1. Remplir le nom d’utilisateur', async () => {
+        await page.pause();
         await loginPage.fillUsername();
         AllureUtils.attachJson('Nom utilisateur', userQa.user_auth.login);
         allure.attachment('Prénom aléatoire (DataFactory)', JSON.stringify(DataFactory.getFirstName1(), null, 2), 'application/json');
