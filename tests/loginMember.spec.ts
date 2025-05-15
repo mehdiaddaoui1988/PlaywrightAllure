@@ -22,7 +22,7 @@ test("Connexion utilisateur valide", { tag: ["@login", "@favorite"] , annotation
   await test.step("1. Saisir le nom d'utilisateur", async () => {
     //await loginPage.fillUsername();
     //await loginPage.fillField('username', userQa.user_auth.login)
-    await loginPage.fillField("username", userQa.user_auth.login);
+    await loginPage.fillUsername(userQa.user_auth.login);
     //await page.pause();
     // await allure.attachment("User data",JSON.stringify("TEST-TEST", null, 2),"application/json");
     AllureUtils.attachJson("Données utilisateur", userQa.user_auth.login);
