@@ -33,11 +33,13 @@ test.describe('Authentification OrangeHRM avec l\'utilisation des Fixtures ', ()
 
       await test.step('3. Cliquer sur Connexion', async () => {
         await loginPage.clickLoginButton();
+        await page.waitForTimeout(1000 ); 
         await AllureUtils.attachScreenshot('Dashboard', page);
       });
 
       await test.step('4. Vérifier que le dashboard est affiché', async () => {
         await expect(page).toHaveTitle(/OrangeHRM/);
+        await page.waitForTimeout(2000 ); 
         await AllureUtils.attachScreenshot('Dashboard', page);
       });
     }
@@ -47,5 +49,7 @@ test.describe('Authentification OrangeHRM avec l\'utilisation des Fixtures ', ()
     await page.goto('/');
     await loginPage.loginToApplication();
     await expect(page).toHaveTitle(/OrangeHRM/);
+    await page.waitForTimeout(1000 ); 
+    await allure.attachment("Dashboard", await page.screenshot(), "image/png");
   });
 });
