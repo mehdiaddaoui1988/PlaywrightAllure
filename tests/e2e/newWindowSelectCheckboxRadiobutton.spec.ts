@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { AllureUtils } from "../src/utils/allure.utils";
+import { AllureUtils } from "../../src/utils/allure.utils"; 
 
 test('Test automatisé Playwright', async ({ page, context }) => {
   AllureUtils.initSuite("Automation Project", "OrangeHrm", "New window");

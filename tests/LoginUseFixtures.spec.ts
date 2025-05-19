@@ -20,7 +20,7 @@ test.describe('Authentification OrangeHRM avec l\'utilisation des Fixtures ', ()
       await page.goto('/');
 
       await test.step('1. Remplir le nom d’utilisateur', async () => {
-        await page.pause();
+        //await page.pause();
         await loginPage.fillUsername();
         AllureUtils.attachJson('Nom utilisateur', userQa.user_auth.login);
         allure.attachment('Prénom aléatoire (DataFactory)', JSON.stringify(DataFactory.getFirstName1(), null, 2), 'application/json');
