@@ -18,7 +18,7 @@ export class AllureUtils {
    */
   static setDescription(text: string) {
     allure.description(text);
-    //test
+    
   }
 
   /**
