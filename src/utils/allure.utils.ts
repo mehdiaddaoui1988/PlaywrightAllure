@@ -11,7 +11,7 @@ export class AllureUtils {
     if (subSuite) {
       allure.subSuite(subSuite);
     }
-    //DELETELATER
+    
   }
 
   /**
