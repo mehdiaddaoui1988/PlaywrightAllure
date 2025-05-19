@@ -1,2 +1,0 @@
-{ gender: 'Male', civility: 'Monsieur', firstName: 'Wilfred' }
-Nom généré Par la lib fakers : Barton
