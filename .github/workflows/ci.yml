@@ -30,7 +30,7 @@ jobs:
 
       - name: Run Playwright tests
         run: npx playwright test --workers=1
-        continue-on-error: true
+        continue-on-error: true 
 
       - name: Generate Allure report
         if: always()
@@ -69,7 +69,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./private
           publish_branch: gh-pages
 
       - name: Add landing page link to summary
