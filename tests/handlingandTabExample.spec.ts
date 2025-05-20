@@ -3,7 +3,7 @@ import { AllureUtils } from "../src/utils/allure.utils";
 import  LoginPage from "../src/page-objects/loginPage/LoginPage"
 
 
-test('Gérer un nouvel onglet et revenir à la page principale', async ({ page, context }) => {
+test('Gérer un nouvel onglet et revenir à la page principale', async ({ page, context, browser }) => {
    AllureUtils.initSuite("Automation Project", "OrangeHrm", "Add Employees With excelFiles");
    AllureUtils.setDescription("Ce test est Pour Gérer un nouvel onglet et revenir à la page principale .");
    AllureUtils.setSeverity("critical");
@@ -35,6 +35,12 @@ test('Gérer un nouvel onglet et revenir à la page principale', async ({ page, 
     // Attendre un peu pour voir l'action (optionnel)
     await newPage.waitForTimeout(2000);
 
+    
+    /*const context2 = await browser.newContext(); // contexte du navigateur
+    const page1 = await context2.newPage(); // premier onglet
+    await page1.goto('www.google.fr');
+    expect(page1).toHaveTitle("Google");*/
+
     // Fermer l'onglet après la connexion
     await newPage.close();
 
@@ -45,4 +51,7 @@ test('Gérer un nouvel onglet et revenir à la page principale', async ({ page, 
     
     console.log('Retour à la page principale réussi ✅');
     //await page.pause();
+
+    
+    
 });
