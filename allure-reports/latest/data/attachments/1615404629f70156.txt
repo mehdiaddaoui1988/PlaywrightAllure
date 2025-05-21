@@ -1,0 +1,7 @@
+{ gender: 'Female', civility: 'Madame', firstName: 'Kathryn' }
+Nom généré Par la lib fakers : Brown
+🚀 Employé généré :  - Male 
+🔹 Status : Part-Time Contract 
+🔹 Include : Current and Past Employees 
+🔹 Job Title : QA Engineer 
+🔹 Sub Unit : Administration
